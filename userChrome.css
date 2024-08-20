@@ -20,7 +20,7 @@
   #sidebar-select-box,
   .browser-sidebar2,
   tab.tabbrowser-tab * {
-    background-color: #1a1a1a !important;
+    background-color: #1F1D29 !important;
   }
 
 }
@@ -42,7 +42,7 @@
 
 @media (prefers-color-scheme: dark) {
   #navigator-toolbox {
-    background: #1a1a1a !important;
+    background: #1F1D29 !important;
   }
 }
 
@@ -485,13 +485,13 @@ tab,
 
 @media (prefers-color-scheme: dark) {
   .tab-icon-image {
-    content: url('dark.png') !important;
+    content: url('totoro.gif') !important;
   }
 }
 
 @media (prefers-color-scheme: light) {
   .tab-icon-image {
-    content: url('light.png') !important;
+    content: url('totoro.gif') !important;
   }
 }
 
@@ -626,7 +626,7 @@ tab,
 /* Change URL Bar background color */
 @media (prefers-color-scheme: dark) {
   #urlbar-background {
-    background-color: #2a2a2a !important;
+    background-color: #393552 !important;
   }
 }
 
@@ -638,7 +638,7 @@ tab,
 
 @media (prefers-color-scheme: dark) {
   #urlbar-results>*[selected=""] {
-    background-color: #424242 !important;
+    background-color: #393552 !important;
   }
 }
 
@@ -912,7 +912,7 @@ tab,
 
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
   --sidebar-width: 40px;
-  --sidebar-hover-width: 512px;
+  --sidebar-hover-width: 300px;
   position: relative;
   min-width: var(--sidebar-width) !important;
   width: var(--sidebar-width) !important;
@@ -1192,4 +1192,45 @@ tab,
 .browserContainer>findbar .findbar-textbox {
   border-radius: 10px !important;
   text-align: center !important;
+}
+
+/* ---------------------------------------------- */
+/* Some variables for quick configuration - play with numbers to find a perfect match for your setup */
+:root {
+  --sidebar-width: 5vw;
+  --panel-width: 95vw;
+  --panel-hide-offset: -20px;
+  --opacity-when-hidden: 0.05;
+}
+
+/* Auto-hide address bar */
+#navigator-toolbox {
+  position: fixed !important;
+  /* Comment out following line to get 'slide-page-down' reveal, like in F11 fullscreen mode */
+  display: block;
+  transition: margin-top 82ms 33ms linear, opacity 82ms 33ms linear !important;
+  z-index: 2;
+  opacity: 1;
+  /* Spacing on the left for sidebar */
+  margin-left: var(--sidebar-width);
+  /* Disabled the borders, as the bottom one seemed to have unwanted top padding sometimes */
+  border: none !important;
+}
+
+#navigator-toolbox,
+#navigator-toolbox>* {
+  /* Reduced width for panel in order to not overflow the screen on the right side */
+  width: var(--panel-width);
+}
+
+#navigator-toolbox:not(:focus-within):not(:hover) {
+  margin-top: var(--panel-hide-offset);
+  opacity: var(--opacity-when-hidden);
+}
+
+/* Disable auto-hiding when in 'customize' mode */
+:root[customizing] #navigator-toolbox {
+  position: relative !important;
+  opacity: 1 !important;
+  margin-top: 0px;
 }
