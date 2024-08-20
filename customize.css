@@ -1,0 +1,15 @@
+/* GLOBAL SETTING */
+
+/* Fonts */
+* {
+  font-family: monospace !important;
+}
+
+/* Theme */
+:root {
+  /* Dark Mode*/
+  --main-color-darkmode: #1F1D29;
+
+  /* Light Mode*/
+  --main-color-lightmode: #e6e6e6;
+}
